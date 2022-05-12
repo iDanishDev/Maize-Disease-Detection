@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    ul {
+      list-style-type: none;
+      margin-bottom: 130px;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+      background-color: #111;
+    }
+
+    .active {
+      background-color: #04AA6D;
+    }
+
+    input {
+      display: block;
+      width: 80%;
+      padding: 10px;
+      font-size: 14px;
+      outline: none;
+      margin-bottom: 20px;
+      margin-left: 10%;
+      border-radius: 5px;
+      border: 1px solid #4aaaa5;
+    }
+
+    .center {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    .form-input {
+      width: 350px;
+      padding: 20px;
+      background: #fff;
+      box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
+        3px 3px 7px rgba(94, 104, 121, 0.377);
+    }
+
+    .form-input input {
+      display: none;
+
+    }
+
+    .form-input label {
+      float: left;
+      width: 45%;
+      height: 45px;
+      margin-left: 10%;
+      margin-right: 5%;
+      text-align: center;
+      line-height: 50px;
+      text-align: center;
+      background: #1172c2;
+
+      color: #fff;
+      font-size: 15px;
+      font-family: "Open Sans", sans-serif;
+      text-transform: Uppercase;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .form-input img {
+      float: left;
+      width: 100%;
+
+
+      margin-bottom: 30px;
+      object-fit: cover;
+
+    }
+
+    .form-input button {
+      width: 30%;
+      height: 45px;
+      display: inline-block;
+
+
+      border: none;
+      outline: none;
+
+      border-radius: 5px;
+      background: #4aaaa5;
+      cursor: pointer;
+      color: #fff;
+      font-size: 15px;
+      font-family: "Open Sans", sans-serif;
+      text-transform: Uppercase;
+      font-weight: 600;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="About.html">About</a></li>
+
+    <li style="float:right"><a class="active" href="prediction.html">Prediction</a></li>
+  </ul>
+
+  <div class="center">
+<!--  -->
+    <div class="form-input">
+
+        <div class="preview">
+
+          <img id="file-ip-1-preview">
+
+          
+
+        </div>
+
+      
+
+      
+
+    </div>
+<!--  -->
+
+<form action="/predict" method="post" enctype="multipart/form-data" onsubmit="showloading()">
+
+  <input type="file" name="image" class="upload" id="file-ip-1" onchange="showPreview(event);" required>
+  <input type="submit" value="Predict">
+
+</form>
+
+  </div>
+  <script type="text/javascript">
+    function showPreview(event) {
+      if (event.target.files.length > 0) {
+        var src = URL.createObjectURL(event.target.files[0]);
+        var preview = document.getElementById("file-ip-1-preview");
+        preview.src = src;
+        preview.style.display = "block";
+      }
+    }
+  </script>
+</body>
+
+</html>
