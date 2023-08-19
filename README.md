@@ -9,7 +9,7 @@
 
 [PlantVillage](https://www.kaggle.com/datasets/abdallahalidev/plantvillage-dataset)
 
-<table border="5px">
+<table border="0px">
 <tr>
 <th>Class Number</th><th>Class Name</th>
 </tr>
